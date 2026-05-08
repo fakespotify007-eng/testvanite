@@ -25,23 +25,86 @@ body {
   overflow-x: hidden;
 }
 
+/* ===================== FLOATING LOGO CIRCLE ===================== */
+
+.floating-logo {
+
+  position: fixed;
+  top: 22px;
+  left: 22px;
+
+  width: 80px;
+  height: 80px;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background: transparent; /* <- rimosso glass */
+
+  border: none; /* opzionale */
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.336);
+}
+
+/* IMAGE */
+
+.floating-logo img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* HOVER */
+
+.floating-logo:hover {
+
+  transform:
+  scale(1.08);
+
+  background:
+  rgba(255,255,255,0.18);
+}
+
+.floating-logo.big {
+
+  width: 100px;
+  height: 100px;
+
+  background:
+  rgba(0,0,0,0.22);
+
+  backdrop-filter: blur(20px);
+}
+
 /* ===================== HERO ===================== */
 
 .hero {
-
+  height: 100vh;
   position: relative;
 
-  height: 100vh;
-
-  overflow: hidden;
+    background: url('1.jpg')
+    center center/cover no-repeat;
+      overflow: hidden;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero picture,
-.hero picture img {
+/* MEDIA */
+
+.hero-media {
 
   position: absolute;
 
@@ -49,8 +112,18 @@ body {
 
   width: 100%;
   height: 100%;
+}
+
+.hero-media img {
+
+  width: 100%;
+  height: 100%;
 
   object-fit: cover;
+
+  display: block;
+
+  object-position: center center;
 }
 
 .overlay {
@@ -84,14 +157,6 @@ body {
   z-index: 10;
 }
 
-.logo {
-  color: white;
-
-  letter-spacing: 7px;
-
-  font-size: 0.9rem;
-  font-weight: 600;
-}
 
 .nav-links {
   display: flex;
@@ -592,19 +657,6 @@ section {
   opacity: 0.9;
 }
 
-.studio-image picture,
-.studio-image picture img {
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-}
-
-.studio-image picture img {
-
-  object-fit: cover;
-}
 
 
 /* ZOOM EFFECT */
