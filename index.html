@@ -30,6 +30,7 @@
 
       <div class="nav-links">
         <a href="#gallery">Lavori</a>
+        <a href="#studio">Studio</a>
         <a href="#booking">Appuntamento</a>
         <a href="#social">Social</a>
         <a href="#location">Posizione</a>
@@ -62,153 +63,93 @@
 
 
   <!-- GALLERY -->
-  <section class="gallery-section" id="gallery">
+  <div class="slider-wrapper reveal" id="gallery">
 
-    <div class="section-title reveal">
+  <button class="slider-btn prev">
+    &#10094;
+  </button>
 
-      <span>Il Salone</span>
+  <div class="slider">
 
-      <h2>
-        Un’esperienza beauty moderna
-      </h2>
-
+    <div class="slide active">
+      <img src="2.jpg" alt="">
+      <div class="slide-overlay">
+        <span>Styling</span>
+        <h3>Eleganza naturale</h3>
+      </div>
     </div>
 
-
-
-    <div class="gallery-grid">
-
-      <!-- CARD -->
-      <div class="gallery-card reveal">
-
-        <div class="gallery-image slide-right">
-          <img src="2.jpg" alt="">
-        </div>
-
-        <div class="card-text fade-up">
-
-          <span class="card-mini">
-            Styling
-          </span>
-
-          <h3>Eleganza naturale</h3>
-
-          <p>
-            Uno stile raffinato e moderno pensato per valorizzare
-            la tua personalità con semplicità.
-          </p>
-
-        </div>
-
+    <div class="slide">
+      <img src="3.jpg" alt="">
+      <div class="slide-overlay">
+        <span>Hair</span>
+        <h3>Bei capelli</h3>
       </div>
-
-
-
-      <!-- CARD -->
-      <div class="gallery-card reverse reveal">
-
-        <div class="gallery-image slide-left">
-          <img src="3.jpg" alt="">
-        </div>
-
-        <div class="card-text fade-up">
-
-          <span class="card-mini">
-            Beauty
-          </span>
-
-          <h3>Dettagli premium</h3>
-
-          <p>
-            Ogni trattamento viene eseguito con attenzione,
-            prodotti selezionati e cura dei dettagli.
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- CARD -->
-      <div class="gallery-card reveal">
-
-        <div class="gallery-image slide-right">
-          <img src="4.jpg" alt="">
-        </div>
-
-        <div class="card-text fade-up">
-
-          <span class="card-mini">
-            Relax
-          </span>
-
-          <h3>Atmosfera minimal</h3>
-
-          <p>
-            Un ambiente luminoso, rilassante e contemporaneo
-            pensato per il tuo benessere.
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- CARD -->
-      <div class="gallery-card reverse reveal">
-
-        <div class="gallery-image slide-left">
-          <img src="5.jpg" alt="">
-        </div>
-
-        <div class="card-text fade-up">
-
-          <span class="card-mini">
-            Luxury
-          </span>
-
-          <h3>Cura e precisione</h3>
-
-          <p>
-            Esperienza professionale e attenzione dedicata
-            per risultati naturali ed eleganti.
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- CARD -->
-      <div class="gallery-card reveal">
-
-        <div class="gallery-image slide-right">
-          <img src="6.jpg" alt="">
-        </div>
-
-        <div class="card-text fade-up">
-
-          <span class="card-mini">
-            Experience
-          </span>
-
-          <h3>Stile contemporaneo</h3>
-
-          <p>
-            Un concept beauty essenziale, moderno e premium
-            ispirato ai migliori atelier europei.
-          </p>
-
-        </div>
-
-      </div>
-
     </div>
 
-  </section>
+    <div class="slide">
+      <img src="4.jpg" alt="">
+      <div class="slide-overlay">
+        <span>Hair</span>
+        <h3>Bei capelli</h3>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="5.jpg" alt="">
+      <div class="slide-overlay">
+        <span>Hair</span>
+        <h3>Bei capelli</h3>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="6.jpg" alt="">
+      <div class="slide-overlay">
+        <span>Hair</span>
+        <h3>Bei capelli</h3>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="slider-btn next">
+    &#10095;
+  </button>
+
+</div>
+
+
+<section class="studio-section" id="studio">
+
+  <div class="studio-image">
+
+    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop" alt="Vanité Beauty Studio">
+
+    <div class="studio-overlay"></div>
+
+  </div>
+
+  <div class="studio-content reveal">
+
+    <span>
+      Il nostro spazio
+    </span>
+
+    <h2>
+      Un ambiente pensato
+      per il tuo benessere
+    </h2>
+
+    <p>
+      Linee essenziali, luce naturale e dettagli moderni
+      creano un’esperienza beauty elegante, rilassante
+      e contemporanea.
+    </p>
+
+  </div>
+
+</section>
 
 
 
@@ -255,7 +196,7 @@
 
       <span>Seguici</span>
 
-      <h2>resta connessa con noi</h2>
+      <h2>Resta connesso con noi</h2>
 
     </div>
 
@@ -368,6 +309,72 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal')
 .forEach(el => observer.observe(el));
+
+const slides = document.querySelectorAll('.slide');
+
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+let current = 0;
+
+function updateSlider() {
+
+  slides.forEach((slide, index) => {
+
+    slide.classList.remove(
+      'active',
+      'left',
+      'right',
+      'hidden'
+    );
+
+    const total = slides.length;
+
+    let position =
+      (index - current + total) % total;
+
+    if(position === 0) {
+
+      slide.classList.add('active');
+
+    } else if(position === 1) {
+
+      slide.classList.add('right');
+
+    } else if(position === total - 1) {
+
+      slide.classList.add('left');
+
+    } else {
+
+      slide.classList.add('hidden');
+
+    }
+
+  });
+
+}
+
+nextBtn.addEventListener('click', () => {
+
+  current = (current + 1) % slides.length;
+
+  updateSlider();
+
+});
+
+prevBtn.addEventListener('click', () => {
+
+  current =
+    (current - 1 + slides.length)
+    % slides.length;
+
+  updateSlider();
+
+});
+
+updateSlider();
+
 
 </script>
 
