@@ -17,27 +17,20 @@
 
 <body>
 
+  <a href="#" class="floating-logo">
+
+  <img src="logo.jpg" alt="Vanité Beauty">
+
+</a>
+
   <!-- HERO -->
   <header class="hero">
-
-    <picture>
-
-      <source
-        media="(max-width: 768px)"
-        srcset="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop">
-
-      <img
-        src="1.jpg"
-        alt="Vanité Beauty">
-
-    </picture>
 
     <div class="overlay"></div>
 
     <nav class="navbar">
 
       <div class="logo">
-        VANITÉ
       </div>
 
       <div class="nav-links">
@@ -135,18 +128,6 @@
 <section class="studio-section" id="studio">
 
   <div class="studio-image">
-
-    <picture>
-
-      <source
-        media="(max-width: 768px)"
-        srcset="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop">
-
-      <img
-        src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=2200&auto=format&fit=crop"
-        alt="Vanité Studio">
-
-    </picture>
 
     <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop" alt="Vanité Beauty Studio">
 
@@ -316,7 +297,7 @@
 
 
 <script>
-
+//    HERO
 const observer = new IntersectionObserver((entries) => {
 
   entries.forEach(entry => {
@@ -333,6 +314,8 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal')
 .forEach(el => observer.observe(el));
+
+//    GALLERIA
 
 const slides = document.querySelectorAll('.slide');
 
@@ -399,6 +382,25 @@ prevBtn.addEventListener('click', () => {
 
 updateSlider();
 
+
+
+//  LOGO
+const logo =
+document.querySelector('.floating-logo');
+
+window.addEventListener('scroll', () => {
+
+  if(window.scrollY > 550) {
+
+    logo.classList.add('big');
+
+  } else {
+
+    logo.classList.remove('big');
+
+  }
+
+});
 
 </script>
 
