@@ -50,7 +50,17 @@ body {
 
   border: none; /* opzionale */
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.336);
+ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.521);
+
+/* 👇 stato iniziale invisibile */
+  opacity: 0;
+  transform: translateY(-10px);
+
+  pointer-events: none;
+
+  transition:
+  opacity 0.6s ease,
+  transform 0.6s ease;
 }
 
 /* IMAGE */
@@ -76,15 +86,13 @@ body {
   rgba(255,255,255,0.18);
 }
 
-.floating-logo.big {
+.floating-logo.visibile {
 
-  width: 100px;
-  height: 100px;
+  opacity: 1;
 
-  background:
-  rgba(0,0,0,0.22);
+  transform: translateY(0);
 
-  backdrop-filter: blur(20px);
+  pointer-events: auto;
 }
 
 /* ===================== HERO ===================== */
